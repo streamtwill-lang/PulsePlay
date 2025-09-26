@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About PulsePlay</title>
+  <style>
+    /* Navbar styles */
+    header {
+      background: linear-gradient(90deg, #1f1fd7, #4c53f0);
+      color: white;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin-bottom: 4px;
+      border-radius: 3px;
+    }
+    @media(max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(180deg, #1f1fd7, #616de8);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero section styles */
+    .hero {
+      background: linear-gradient(rgba(0,0,80,0.6), rgba(0,0,80,0.6)), url('background-hero.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 140px 20px 100px;
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: auto;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      margin-bottom: 30px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+    }
+
+    /* Page main content styles */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f9fafc, #e0e7ff);
+      padding: 0 15px 60px;
+      color: #333;
+    }
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #1f1fd7;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .about-text {
+      flex: 2 1 500px;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .about-text b {
+      color: #1f1fd7;
+    }
+    .about img {
+      flex: 1 1 300px;
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 12px 28px rgba(31,31,215,0.3);
+      animation: float-img 6s ease-in-out infinite;
+      user-select: none;
+    }
+    @keyframes float-img {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .values {
+      margin-top: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #1a1a1a;
+    }
+    .values h3 {
+      color: #1f1fd7;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .values ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">PulsePlay</div>
+      <nav>
+        <ul id="menu">
+          <li><a href="webpage.html" target="_blank">Home</a></li>
+          <li><a href="services.html" target="_blank">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" target="_blank">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="document.getElementById('menu').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>About PulsePlay</h1>
+      <p>Discover our story, mission, and commitment to delivering the best entertainment experience.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <div class="about">
+      <div class="about-text">
+        <p><b>PulsePlay</b> is a leading streaming platform located in Nigeria. We combine movies, music, live TV, and series into one seamless experience.</p>
+        <p>Our mission is to connect people to entertainment they love—anywhere, anytime with high-quality, accessible streaming across all devices.</p>
+        <p>Founded in 2020, we’ve grown into a trusted name in digital entertainment, dedicated to innovation, accessibility, and top-notch quality.</p>
+        <p>PulsePlay is committed to providing personalized recommendations, multi-device support, and community engagement features that make entertainment social and fun.</p>
+        <p>We continuously expand our content library and partner with creators to bring exclusive releases and local favorites to our audience.</p>
+      </div>
+      <img src="mypic.png" alt="PulsePlay Team" />
+    </div>
+    <div class="values">
+      <h3>Our Core Values</h3>
+      <ul>
+        <li><strong>Innovation:</strong> Pushing the boundaries of streaming technology for unmatched user experience.</li>
+        <li><strong>Accessibility:</strong> Making entertainment available to everyone, everywhere.</li>
+        <li><strong>Community:</strong> Building a vibrant community around shared love for movies, music, and more.</li>
+        <li><strong>Quality:</strong> Delivering premium content and smooth performance always.</li>
+        <li><strong>Trust:</strong> Prioritizing data security and customer satisfaction.</li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

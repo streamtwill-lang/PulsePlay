@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulsePlay</title>
+  <style>
+    /* Reset & base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #d6e0ff, #a3bffa);
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    header {
+      background: linear-gradient(90deg, #1f1fd7, #4c53f0);
+      color: white;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-weight: 600;
+    }
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin-bottom: 4px;
+      border-radius: 3px;
+    }
+    @media(max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(180deg, #1f1fd7, #616de8);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Marquee */
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      background: linear-gradient(90deg, #1f1fd7, #4c53f0);
+      color: white;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+    }
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 12s linear infinite;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(0,0,80,0.6), rgba(0,0,80,0.6)), url('background.png') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 140px 20px 100px;
+      position: relative;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: auto;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      margin-bottom: 30px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff6600, #ff914d);
+      padding: 14px 30px;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+      box-shadow: 0 4px 12px rgba(255,102,0,0.4);
+      user-select: none;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #cc5200, #e67300);
+      box-shadow: 0 6px 18px rgba(204,82,0,0.6);
+    }
+
+    /* Sections */
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #1f1fd7;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: pulse 5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+      50% { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(90deg, #1f1fd7, #4c53f0);
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      font-weight: 600;
+      user-select: none;
+    }
+    .social-icons {
+      margin: 15px 0;
+    }
+    .social-icons a {
+      margin: 0 12px;
+      font-size: 1.5rem;
+      display: inline-block;
+      color: white;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <!-- Marquee -->
+  <div class="marquee-container">
+    <span class="marquee-text">Welcome to PulsePlay – Feel the Beat. Live the Stream.</span>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">PulsePlay</div>
+      <nav>
+        <ul id="menu">
+          <li><a href="webpage.html" target="_blank' ">Home</a></li>
+          <li><a href="services.html" target="_blank">Services</a></li>
+          <li><a href="about.html" target="_blank0">About</a></li>
+          <li><a href="contact.html" target="_blank">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="document.getElementById('menu').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Stream Smarter with PulsePlay</h1>
+      <p>Your one-stop destination for movies, series, music & live TV.</p>
+      <a href="services.html" class="btn">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2 class="section-title">Media Gallery</h2>
+    <div class="gallery">
+      <img src="Rectangle 5 (1).png" alt="Movie poster" />
+      <img src="Rectangle 5 (2).png" alt="Concert stream" />
+      <img src="Rectangle 6.png" alt="Podcast session" />
+      <img src="Rectangle 5 (3).png" alt="Live event 1" />
+      <img src="Rectangle 5 (4).png" alt="Live event 2" />
+      <img src="Rectangle 5 (5).png" alt="Live event 3" />
+      <img src="Rectangle 5.png" alt="Live event 4" />
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Follow us on Social Media</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Website"><span aria-hidden="true">🌐</span></a>
+      <a href="#" aria-label="Facebook"><span aria-hidden="true">📘</span></a>
+      <a href="#" aria-label="Twitter"><span aria-hidden="true">🐦</span></a>
+      <a href="#" aria-label="YouTube"><span aria-hidden="true">▶️</span></a>
+    </div>
+    <p>&copy; 2025 PulsePlay. All rights reserved.</p>
+  </footer>
+</body>
+</html>

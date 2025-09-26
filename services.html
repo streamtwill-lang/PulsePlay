@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulsePlay Services</title>
+  <style>
+    /* Navbar styles */
+    header {
+      background: linear-gradient(90deg, #1f1fd7, #4c53f0);
+      color: white;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin-bottom: 4px;
+      border-radius: 3px;
+    }
+    @media(max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(180deg, #1f1fd7, #616de8);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero section styles */
+    .hero {
+      background: linear-gradient(rgba(0,0,80,0.6), rgba(0,0,80,0.6)), url('background-hero.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 140px 20px 100px;
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: auto;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      margin-bottom: 30px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+    }
+
+    /* Rest of page styles */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f6ff, #c9d9ff);
+      color: #333;
+      padding: 20px 10px 60px;
+    }
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #1f1fd7;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .service-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .service-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    .service-card video,
+    .service-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+      animation: float-up 6s ease-in-out infinite;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+    @keyframes float-up {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .extra-info {
+      max-width: 900px;
+      margin: 40px auto 0;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #1a1a1a;
+      text-align: center;
+    }
+    .extra-info p {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">PulsePlay</div>
+      <nav>
+        <ul id="menu">
+          <li><a href="webpage.html" target="_blank">Home</a></li>
+          <li><a href="services.html" target="_blank">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" target="_blank">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="document.getElementById('menu').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Our Services</h1>
+      <p>Explore the variety of entertainment options PulsePlay offers, tailored for your lifestyle.</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>Movie Streaming</h3>
+        <p>Enjoy unlimited access to blockbuster movies across genres and decades, all with HD quality and subtitles.</p>
+        <video controls>
+          <source src="vid.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="service-card">
+        <h3>Live TV</h3>
+        <p>Catch your favorite channels live, including news, sports, and entertainment, anytime, anywhere on any device.</p>
+        <img src="transformer.webp" alt="Live TV Preview" />
+      </div>
+      <div class="service-card">
+        <h3>Music & Podcasts</h3>
+        <p>Stream your favorite music hits, curated playlists, and trending podcast sessions on the go.</p>
+        <img src="mypic.png" alt="Music Streaming" />
+      </div>
+    </div>
+    <div class="extra-info">
+      <p>We pride ourselves on offering a user-friendly platform enhanced with smart recommendations based on your tastes and viewing history.</p>
+      <p>Our streaming is optimized for all connection speeds with adaptive bitrate technology, ensuring smooth playback anywhere.</p>
+      <p>Join PulsePlay today and experience entertainment personalized just for you, right at your fingertips.</p>
+    </div>
+  </section>
+</body>
+</html>
